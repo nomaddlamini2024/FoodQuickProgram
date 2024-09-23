@@ -1,0 +1,66 @@
+// Food Quick requirements - creating a program that can help keep track of 
+   orders and distributing orders accordingly.
+   Food Quick receives the orders and distributes them to a driver, based on 
+   driver current load and location. 
+
+
+// Program design 
+   Pseudo code plan for the program
+   . creation of classes 
+   . creation of methods in classes
+   . relationships between classes
+
+1. Class Customer:
+    - Features:
+      - Customer  Name
+      - Contact number of the Customer
+      - Address of the Customer
+      - Location (city) of the Customer
+      - Email address of the Customer
+
+2. Class Restaurant:
+    - Features
+      - Name of the Restaurant
+      - Contact number of the Restaurant
+      - Location of the Restaurant
+      - The list of meals being ordered 
+      - The meal prices
+      - The number of each meal being ordered
+      - Special preparation instructions given by the Customer
+      - The total amount to be paid
+
+3. Class Driver:
+   - Features:
+      - Name of the Restaurant
+      - Location (city) of the Driver
+      - Load of deliveries
+    
+
+4. Class Invoice:
+   - Methods:
+     - generateInvoice(Customer, Restaurant, Driver,  ): String
+   - Features
+      - order number 
+      - Customer  Name
+      - Contact number of the Customer
+      - Address of the Customer
+      - Location (city) of the Customer
+      - Email address of the Customer
+      - The list of meals being ordered 
+      - The meal prices
+      - The number of each meal being ordered
+      - Special preparation instructions given by the Customer
+      - The total amount to be paid
+      - Restaurant contact number
+
+
+5. Program:
+   - Create Customer object by capturing features
+   - Create Restaurant object by capturing features.
+   - Read drivers.txt file and find the driver with the smallest load in the same area.
+   - If a suitable driver is found:
+      - Generate an invoice using Invoice class.
+      - Write the invoice to invoice.txt.
+   - If no suitable driver is found:
+      - Display a message: "Sorry! Our drivers are too far away from you to be able to deliver to your location."
+      
