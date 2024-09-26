@@ -114,12 +114,12 @@ public class FoodQuickProgram {
 
       // Reading drivers.txt file and finding the driver with the smallest load
       // in the same area
-      Driver suitableDriver = findSuitableDriver(customer, restaurant);
+      Driver availableDriver = findavailableDriver(customer, restaurant);
       
-      if (suitableDriver != null) {
+      if (availableDriver != null) {
         // Generating invoice and writing it to invoice.txt
         String invoiceDetails =
-            Invoice.generateInvoice(customer, suitableDriver, restaurant);
+            Invoice.generateInvoice(customer, availableDriver, restaurant);
         writeInvoiceToFile("invoice.txt", invoiceDetails);
         System.out.println(
             "Invoice has been generated and saved to invoice.txt");
@@ -136,7 +136,7 @@ public class FoodQuickProgram {
 
 
   // Making utility methods private to maintain encapsulation
-  private static Driver findSuitableDriver(    
+  private static Driver findavailableDriver(    
     Customer customer, Restaurant restaurant) {
     List<Driver> drivers = new ArrayList<>();
     try {
@@ -155,19 +155,21 @@ public class FoodQuickProgram {
       return null;
     }
 
-    // Finding the driver with the smallest load in the same location as the
-    // restaurant
-    Driver suitableDriver = null;
+    /* 
+       Making use of the getMethod() method - using get to get the specified method of  
+       the class with the specified parameter type
+    */ 
+    Driver availableDriver = null;
     for (Driver driver : drivers) {
       if (driver.getLocation().equalsIgnoreCase(restaurant.getLocation())) {
-        if (suitableDriver == null
-            || driver.getLoad() < suitableDriver.getLoad()) {
-          suitableDriver = driver;
+        if (availableDriver == null
+            || driver.getLoad() < availableDriver.getLoad()) {
+          availableDriver = driver;
         }
       }
     }
 
-    return suitableDriver;
+    return availableDriver;
   }
 
   // Writing invoice to a file with exception handling
