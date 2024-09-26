@@ -155,8 +155,10 @@ public class FoodQuickProgram {
       return null;
     }
 
-    // Finding the driver with the smallest load in the same location as the
-    // restaurant
+    /* 
+       Making use of the getMethod() method - using get to get the specified method of  
+       the class with the specified parameter type
+    */ 
     Driver availableDriver = null;
     for (Driver driver : drivers) {
       if (driver.getLocation().equalsIgnoreCase(restaurant.getLocation())) {
